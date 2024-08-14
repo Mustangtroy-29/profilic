@@ -1,53 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title id="nameD"></title>
-    </head>
-
-    <body>
-        <section class="showcase">
-            <div class="video-container">
-                <video src="./public/dynamic.mp4" autoplay muted loop></video>
-            </div>
-            <div class="content">
-                <div>
-                    <img
-                        src="./public/brackets-top_white.png"
-                        style="height: 170px"
-                        alt=""
-                    />
-                    <br />
-                    <span id="nameH"></span>
-                    <br />
-                    <h3>The promising Open Source Contributer!</h3>
-                    <br />
-                    <img
-                        src="./public/brackets-bottom_white.png"
-                        style="height: 170px"
-                        alt=""
-                    />
-                </div>
-            </div>
-        </section>
-    </body>
-
-    <script>
-        //  change the myName variable in next line to your own name
-        let myName = "Troy Mustang";
-        setName(myName);
-
-        function setName(myName) {
-            document.getElementById("nameD").innerHTML = myName + "'s website";
-            document.getElementById("nameH").innerHTML = myName;
-        }
-    </script>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="nameD"></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap">
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
-
         :root {
             --primary-color: #3a4052;
         }
@@ -61,19 +20,7 @@
         body {
             font-family: "Open Sans", sans-serif;
             line-height: 1.5;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        span {
-            font-weight: 350;
-            font-size: 60px;
-            /* line-height: 1.2; */
-            margin-bottom: 15px;
-            padding-bottom: 400px;
+            color: #fff;
         }
 
         .showcase {
@@ -82,8 +29,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #fff;
             padding: 0 20px;
+            position: relative;
         }
 
         .video-container {
@@ -93,8 +40,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background: var(--primary-color) url("./public/static.png")
-                no-repeat center center/cover;
+            background: var(--primary-color) url("./public/static.png") no-repeat center center/cover;
         }
 
         .video-container video {
@@ -107,19 +53,26 @@
             object-fit: cover;
         }
 
-        .video-container:after {
+        .video-container::after {
             content: "";
-            z-index: 1;
-            height: 100%;
-            width: 100%;
+            position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            position: absolute;
+            z-index: 1;
         }
 
         .content {
             z-index: 2;
+        }
+
+        span {
+            font-weight: 350;
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .btn {
@@ -131,30 +84,37 @@
             border: solid #fff 1px;
             margin-top: 25px;
             opacity: 0.7;
+            transition: transform 0.2s;
         }
 
         .btn:hover {
             transform: scale(0.98);
         }
-
-        #about {
-            padding: 40px;
-            text-align: center;
-        }
-
-        #about p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: auto;
-        }
-
-        #about h2 {
-            margin: 30px 0;
-            color: var(--primary-color);
-        }
-
-        .social a {
-            margin: 0 5px;
-        }
     </style>
+</head>
+<body>
+    <section class="showcase">
+        <div class="video-container">
+            <video src="./public/dynamic.mp4" autoplay muted loop></video>
+        </div>
+        <div class="content">
+            <img src="./public/brackets-top_white.png" style="height: 170px" alt="">
+            <br>
+            <span id="nameH"></span>
+            <h3>The promising Open Source Contributor!</h3>
+            <br>
+            <img src="./public/brackets-bottom_white.png" style="height: 170px" alt="">
+        </div>
+    </section>
+
+    <script>
+        let myName = "Troy Mustang";
+        setName(myName);
+
+        function setName(myName) {
+            document.getElementById("nameD").innerText = ${myName}'s website;
+            document.getElementById("nameH").innerText = myName;
+        }
+    </script>
+</body>
 </html>
